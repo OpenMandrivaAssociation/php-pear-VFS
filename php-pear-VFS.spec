@@ -46,15 +46,26 @@ done
 # strip away annoying ^M
 find -type f | grep -v ".gif" | grep -v ".png" | grep -v ".jpg" | xargs dos2unix -U
 
+pushd %{_pearname}-%{version}
 %patch0 -p0
+popd
+
+perl -pi -e "s|\@php_bin\@|%{_bindir}/pear|g" %{_pearname}-%{version}/scripts/%{_class}/*
+
 
 %install
 rm -rf %{buildroot}
 
 install -d %{buildroot}%{_datadir}/pear/%{_class}
 
-install %{_pearname}-%{version}/*.php	%{buildroot}%{_datadir}/pear
-install %{_pearname}-%{version}/%{_class}/*.php	%{buildroot}%{_datadir}/pear/%{_class}
+install %{_pearname}-%{version}/lib/*.php %{buildroot}%{_datadir}/pear
+install %{_pearname}-%{version}/lib/%{_class}/*.php %{buildroot}%{_datadir}/pear/%{_class}
+
+install -d %{buildroot}%{_datadir}/pear/data/%{_class}
+install %{_pearname}-%{version}/data/%{_class}/* %{buildroot}%{_datadir}/pear/data/%{_class}/
+
+install -d %{buildroot}%{_bindir}
+install -m0755 %{_pearname}-%{version}/scripts/%{_class}/vfs.php %{buildroot}%{_bindir}/pear-%{_pearname}
 
 install -d %{buildroot}%{_datadir}/pear/packages
 install -m0644 package.xml %{buildroot}%{_datadir}/pear/packages/%{_pearname}.xml
@@ -83,7 +94,9 @@ rm -rf %{buildroot}
 
 %files
 %defattr(644,root,root,755)
+%attr(0755,root,root) %{_bindir}/pear-%{_pearname}
 %dir %{_datadir}/pear/%{_class}
 %{_datadir}/pear/*.php
 %{_datadir}/pear/%{_class}/*.php
+%{_datadir}/pear/data/%{_class}/*
 %{_datadir}/pear/packages/%{_pearname}.xml
