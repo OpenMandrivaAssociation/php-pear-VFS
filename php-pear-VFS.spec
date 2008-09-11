@@ -1,11 +1,12 @@
 %define		_class		VFS
 %define		_status		beta
 %define		_pearname	%{_class}
+%define		_requires_exceptions 'pear(Horde/MIME/Magic.php)'
 
-Summary:	%{_pearname} - Virtual File System API
+Summary:	Virtual File System API
 Name:		php-pear-%{_pearname}
 Version:	0.2.0
-Release:	%mkrel 1
+Release:	%mkrel 2
 License:	PHP License
 Group:		Development/PHP
 URL:		http://pear.php.net/package/VFS/
@@ -15,7 +16,6 @@ Requires(post): php-pear
 Requires(preun): php-pear
 Requires:	php-pear
 BuildArch:	noarch
-BuildRequires:	dos2unix
 BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
 
 %description
@@ -32,7 +32,6 @@ to directory listing.
 In PEAR status of this package is: %{_status}.
 
 %prep
-
 %setup -q -c
 
 find . -type d -perm 0700 -exec chmod 755 {} \;
@@ -42,9 +41,6 @@ find . -type f -perm 0444 -exec chmod 644 {} \;
 for i in `find . -type d -name CVS` `find . -type f -name .cvs\*` `find . -type f -name .#\*`; do
     if [ -e "$i" ]; then rm -rf $i; fi >&/dev/null
 done
-
-# strip away annoying ^M
-find -type f | grep -v ".gif" | grep -v ".png" | grep -v ".jpg" | xargs dos2unix -U
 
 pushd %{_pearname}-%{version}
 %patch0 -p0
