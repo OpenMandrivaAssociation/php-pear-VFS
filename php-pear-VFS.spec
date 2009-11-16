@@ -14,6 +14,7 @@ Patch0:		php-pear-VFS-0.2.0-fix-path.patch
 Requires(post): php-pear
 Requires(preun): php-pear
 Requires:	php-pear
+BuildRequires:	php-pear
 BuildArch:	noarch
 BuildRoot:	%{_tmppath}/%{name}-%{version}
 
