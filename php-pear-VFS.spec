@@ -3,8 +3,8 @@
 %define		_requires_exceptions 'pear(Horde/MIME/Magic.php)'
 
 Name:		php-pear-%{upstream_name}
-Version:	0.2.0
-Release:	%mkrel 6
+Version:	0.3.0
+Release:	%mkrel 1
 Summary:	Virtual File System API
 License:	PHP License
 Group:		Development/PHP
