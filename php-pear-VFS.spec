@@ -1,6 +1,6 @@
 %define		_class		VFS
 %define		upstream_name	%{_class}
-%define		_requires_exceptions 'pear(Horde/MIME/Magic.php)'
+%define		_requires_exceptions pear(Horde
 
 Name:		php-pear-%{upstream_name}
 Version:	0.3.0
@@ -10,7 +10,7 @@ License:	PHP License
 Group:		Development/PHP
 URL:		http://pear.php.net/package/VFS/
 Source0:	http://download.pear.php.net/package/%{upstream_name}-%{version}.tgz
-Patch0:		php-pear-VFS-0.2.0-fix-path.patch
+Patch0:		php-pear-VFS-0.3.0-fix-path.diff
 Requires(post): php-pear
 Requires(preun): php-pear
 Requires:	php-pear
@@ -46,6 +46,9 @@ rm -rf %{buildroot}%{_datadir}/pear/tests
 
 install -d %{buildroot}%{_datadir}/pear/packages
 install -m 644 %{upstream_name}.xml %{buildroot}%{_datadir}/pear/packages
+
+# bork
+mv %{buildroot}%{_datadir}/pear/lib/VFS/kolab.php %{buildroot}%{_datadir}/pear/%{_class}/
 
 %clean
 rm -rf %{buildroot}
