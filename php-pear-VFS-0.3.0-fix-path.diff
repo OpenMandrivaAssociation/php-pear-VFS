@@ -1,0 +1,36 @@
+diff -Naur php-pear-VFS-0.3.0/package.xml php-pear-VFS-0.3.0.oden/package.xml
+--- php-pear-VFS-0.3.0/package.xml	1970-01-01 10:13:08.000000000 +0100
++++ php-pear-VFS-0.3.0.oden/package.xml	2011-11-28 23:12:36.639660739 +0100
+@@ -65,8 +65,8 @@
+    <file md5sum="155a58c283132b7d0174aa7bbd45e67f" name="lib/VFS/horde.php" role="php" />
+    <file md5sum="6df99e6c30a1a1003d099e272c3f6511" name="lib/VFS/kolab.php" role="php" />
+    <file md5sum="111f831283b23f3831342a1fa1d5ae9c" name="lib/VFS/ListItem.php" role="php" />
+-   <file md5sum="2f8cd5d46eb6d32ce91574c541d9f176" name="lib/VFS/musql.php" role="php" />
+-   <file md5sum="69ebcf96c8e64ede826d330346835a60" name="lib/VFS/Object.php" role="php" />
++   <file md5sum="00424174dbd623177348c9ea36bb4087" name="lib/VFS/musql.php" role="php" />
++   <file md5sum="531953dae8777a517640426b21a01c45" name="lib/VFS/Object.php" role="php" />
+    <file md5sum="461e5e895b76b67471fee31e66b963a2" name="lib/VFS/smb.php" role="php" />
+    <file md5sum="a96435751e9ef90389096536f741a3f3" name="lib/VFS/sql.php" role="php" />
+    <file md5sum="6706e817dd014ab3f9c1e95008c9023c" name="lib/VFS/sql_file.php" role="php" />
+diff -Naur php-pear-VFS-0.3.0/VFS-0.3.0/lib/VFS/musql.php php-pear-VFS-0.3.0.oden/VFS-0.3.0/lib/VFS/musql.php
+--- php-pear-VFS-0.3.0/VFS-0.3.0/lib/VFS/musql.php	1970-01-01 10:13:08.000000000 +0100
++++ php-pear-VFS-0.3.0.oden/VFS-0.3.0/lib/VFS/musql.php	2011-11-28 23:11:01.618656565 +0100
+@@ -1,6 +1,6 @@
+ <?php
+ 
+-require_once dirname(__FILE__) . '/sql.php';
++require_once 'sql.php';
+ 
+ /**
+  * Permission for read access.
+diff -Naur php-pear-VFS-0.3.0/VFS-0.3.0/lib/VFS/Object.php php-pear-VFS-0.3.0.oden/VFS-0.3.0/lib/VFS/Object.php
+--- php-pear-VFS-0.3.0/VFS-0.3.0/lib/VFS/Object.php	1970-01-01 10:13:08.000000000 +0100
++++ php-pear-VFS-0.3.0.oden/VFS-0.3.0/lib/VFS/Object.php	2011-11-28 23:07:42.441910092 +0100
+@@ -1,6 +1,6 @@
+ <?php
+ 
+-require_once dirname(__FILE__) . '/../VFS.php';
++require_once 'VFS.php';
+ 
+ /**
+  * A wrapper for the VFS class to return objects, instead of arrays.
