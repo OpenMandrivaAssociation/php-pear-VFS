@@ -1,6 +1,5 @@
 %define		_class		VFS
 %define		upstream_name	%{_class}
-%define		_requires_exceptions pear(Horde
 
 Name:		php-pear-%{upstream_name}
 Version:	0.3.0
