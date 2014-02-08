@@ -3,7 +3,7 @@
 
 Name:		php-pear-%{upstream_name}
 Version:	0.3.0
-Release:	3
+Release:	4
 Summary:	Virtual File System API
 License:	PHP License
 Group:		Development/PHP
