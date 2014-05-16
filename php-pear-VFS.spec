@@ -1,10 +1,11 @@
 %define	_class	VFS
 %define	modname	%{_class}
+%define	__noautoreq /usr/bin/php
 
 Summary:	Virtual File System API
 Name:		php-pear-%{modname}
 Version:	0.3.0
-Release:	7
+Release:	8
 License:	PHP License
 Group:		Development/PHP
 Url:		http://pear.php.net/package/VFS/
@@ -51,4 +52,3 @@ mv %{buildroot}%{_datadir}/pear/lib/VFS/kolab.php %{buildroot}%{_datadir}/pear/%
 %{_datadir}/pear/%{_class}.php
 %{_datadir}/pear/data/%{_class}
 %{_datadir}/pear/packages/%{modname}.xml
-
