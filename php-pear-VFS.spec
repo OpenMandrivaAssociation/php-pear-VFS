@@ -8,7 +8,7 @@ Version:	0.3.0
 Release:	15
 License:	PHP License
 Group:		Development/PHP
-Url:		http://pear.php.net/package/VFS/
+Url:		https://pear.php.net/package/VFS/
 Source0:	http://download.pear.php.net/package/%{modname}-%{version}.tgz
 Patch0:		php-pear-VFS-0.3.0-fix-path.diff
 BuildArch:	noarch
